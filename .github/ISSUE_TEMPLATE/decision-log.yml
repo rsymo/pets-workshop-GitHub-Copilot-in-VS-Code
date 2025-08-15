@@ -1,0 +1,29 @@
+name: Decision log (Workshop)
+description: Record a design/architecture decision for the workshop
+title: "[Decision] "
+labels: ["workshop/75m", "decision"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What problem are we solving?
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options considered
+      description: Pros/cons of each
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision
+      description: The chosen option and why
+    validations:
+      required: true
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences
+      description: Follow-ups, risks, or work items

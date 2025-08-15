@@ -1,6 +1,11 @@
-# Dog shelter
+# Dog shelter — Copilot Project Instructions (Agent-first)
 
 This is an application to allow people to look for dogs to adopt. It is built in a monorepo, with a Flask-based backend and Astro-based frontend.
+
+Primary goals for Copilot:
+- Use Copilot Agent to add features with tests-first, propose diffs, and apply selectively (Keep/Undo).
+- Use Copilot Chat for planning (user stories, AC), design choices, and brainstorming.
+- Use MCP GitHub integration to create/link issues and update them as steps complete.
 
 ## Frameworks Used
 
@@ -39,5 +44,8 @@ This is an application to allow people to look for dogs to adopt. It is built in
 
 **Note:**  
 - All backend routes require unit tests (see `server/test_app.py`).  
-- When writing tests, always mock database calls.  
+- When writing tests, always mock database calls, following MagicMock/patch style in `server/test_app.py`.  
+- Prefer minimal, explicit diffs; review with the Edits panel and apply partially if needed.  
+- Use @tests and @terminal contexts to diagnose failing tests and re-run them.  
+- Use MCP to create issues from your plan, label them `workshop/75m`, and close them via Chat when done.  
 - Frontend should use dark mode and a modern look.

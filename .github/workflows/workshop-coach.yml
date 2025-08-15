@@ -1,0 +1,27 @@
+name: Workshop Coach
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  cheer:
+    if: contains(github.event.issue.labels.*.name, 'workshop/75m')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Celebrate closed workshop issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.payload.issue.number;
+            const body = [
+              `🎉 Nice work closing #${issue_number}!`,
+              `Next up: open a PR (if you haven't) and let Copilot draft the summary.`,
+              `Tip: Use the PR template checklists to validate your change.`
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body
+            });

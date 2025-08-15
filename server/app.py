@@ -86,5 +86,37 @@ def get_breeds() -> Response:
     breeds_list = [{'id': breed.id, 'name': breed.name} for breed in breeds_query]
     return jsonify(breeds_list)
 
+# --- Favorites feature (workshop stub) ---
+# TODO(workshop): Implement a simple in-memory favorites store or a DB-backed flag on Dog.
+# Keep it minimal for the workshop; tests will mock DB and expect JSON { id, favorite }.
+_favorites_mem = set()  # NOTE: For workshop only; not for production
+
+@app.route('/api/favorites', methods=['GET'])
+def get_favorites() -> Response:
+    """Return a list of dog IDs that are marked as favorites.
+    Workshop note: Intentionally simple to allow Agent to refactor to DB if desired.
+    """
+    return jsonify(sorted(list(_favorites_mem)))
+
+@app.route('/api/favorites', methods=['POST'])
+def toggle_favorite() -> tuple[Response, int] | Response:
+    """Toggle a dog's favorite state. Body: { "id": number } -> { id, favorite }.
+    Intentionally simple; tests will validate behavior. Returns 400 if id missing.
+    """
+    data = request.get_json(silent=True) or {}
+    dog_id = data.get('id')
+    if not isinstance(dog_id, int):
+        return jsonify({"error": "id required"}), 400
+    if dog_id in _favorites_mem:
+        _favorites_mem.remove(dog_id)
+        fav = False
+    else:
+        _favorites_mem.add(dog_id)
+        fav = True
+    # Intentional bug toggle: when enabled, return a misspelled key to break the UI
+    if os.getenv('WORKSHOP_INTENTIONAL_BUG') in ('1', 'true', 'yes', 'on'):
+        return jsonify({"id": dog_id, "favourite": fav})
+    return jsonify({"id": dog_id, "favorite": fav})
+
 if __name__ == '__main__':
     app.run(debug=True, port=5100, host='0.0.0.0') # Listen on all interfaces for Codespaces compatibility - port 5100 to avoid macOS conflicts

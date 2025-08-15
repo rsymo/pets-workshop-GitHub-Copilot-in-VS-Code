@@ -1,5 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    // TODO(workshop): Import and render FavoriteButton next to each dog name.
+    // import FavoriteButton from './FavoriteButton.svelte';
 
     interface Dog {
         id: number;
@@ -52,6 +54,12 @@
 
     // Auto refresh when filters change
     $: selectedBreedId, availableOnly, fetchDogs();
+
+    // TODO(workshop): Track favorites in local state for optimistic UI.
+    // let favorites = new Set<number>();
+    // function onToggleFavorite(id: number, next: boolean) {
+    //   if (next) favorites.add(id); else favorites.delete(id);
+    // }
 </script>
 
 <div>

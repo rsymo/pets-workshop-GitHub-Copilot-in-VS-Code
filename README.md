@@ -6,6 +6,10 @@ This repository contains the project for two guided workshops to explore various
 
 > **[Get started learning about development with GitHub!](./content/README.md)**
 
+Copilot resources:
+- Project instructions for Copilot and Agent mode: [.github/copilot-instructions.md](.github/copilot-instructions.md)
+- 75‑minute Agent Mode workshop: [content/75-min-agent/](content/75-min-agent/README.md)
+
 ## License 
 
 This project is licensed under the terms of the MIT open source license. Please refer to [MIT](./LICENSE.txt) for the full terms.

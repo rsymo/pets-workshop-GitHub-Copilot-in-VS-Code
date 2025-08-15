@@ -1,0 +1,27 @@
+name: Feature request (Workshop)
+description: Create a workshop feature with AC and links
+title: "[Workshop] "
+labels: ["workshop/75m", "enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What and why
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Clear, testable outcomes
+      placeholder: |
+        - [ ] When I ... then ...
+        - [ ] API returns ...
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / Links
+      description: Designs, context, or dependencies

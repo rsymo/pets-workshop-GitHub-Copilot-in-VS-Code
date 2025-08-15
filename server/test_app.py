@@ -107,6 +107,38 @@ class TestApp(unittest.TestCase):
         self.assertEqual(len(data), 1)
         self.assertEqual(set(data[0].keys()), {'id', 'name'})
 
+    # --- Favorites (workshop) ---
+    def test_favorites_empty(self):
+        resp = self.client.get('/api/favorites')
+        self.assertEqual(resp.status_code, 200)
+        data = json.loads(resp.data)
+        self.assertEqual(data, [])
+
+    def test_toggle_favorite_add_and_remove(self):
+        # Add favorite
+        resp = self.client.post('/api/favorites', json={"id": 42})
+        self.assertEqual(resp.status_code, 200)
+        data = json.loads(resp.data)
+        self.assertEqual(data, {"id": 42, "favorite": True})
+        # Confirm in list
+        resp = self.client.get('/api/favorites')
+        data = json.loads(resp.data)
+        self.assertEqual(data, [42])
+        # Remove favorite
+        resp = self.client.post('/api/favorites', json={"id": 42})
+        data = json.loads(resp.data)
+        self.assertEqual(data, {"id": 42, "favorite": False})
+        # Confirm removed
+        resp = self.client.get('/api/favorites')
+        data = json.loads(resp.data)
+        self.assertEqual(data, [])
+
+    def test_toggle_favorite_bad_request(self):
+        resp = self.client.post('/api/favorites', json={})
+        self.assertEqual(resp.status_code, 400)
+        data = json.loads(resp.data)
+        self.assertIn('error', data)
+
 
 if __name__ == '__main__':
     unittest.main()
