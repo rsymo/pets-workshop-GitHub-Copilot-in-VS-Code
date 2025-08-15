@@ -1,3 +1,14 @@
+"""
+Dog Shelter Flask API
+
+Provides endpoints for listing dogs, retrieving dog details, listing breeds, and managing favorites.
+
+Endpoints:
+- /api/dogs: List/filter dogs
+- /api/dogs/<id>: Dog details
+- /api/breeds: List breeds
+- /api/favorites: Manage favorites
+"""
 import os
 from typing import Dict, List, Any, Optional
 from flask import Flask, jsonify, Response, request
