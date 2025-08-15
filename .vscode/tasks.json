@@ -10,7 +10,7 @@
     {
       "label": "Start Backend",
       "type": "shell",
-      "command": "python -m flask run --app server.app --host 0.0.0.0 --port 5100",
+  "command": "python3 -m flask run --app server.app --host 0.0.0.0 --port 5100",
       "isBackground": true,
       "group": { "kind": "build", "isDefault": true },
       "problemMatcher": []
