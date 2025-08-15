@@ -2,11 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Start All",
+      "dependsOn": ["Start Backend", "Start Frontend"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    },
+    {
       "label": "Start Backend",
       "type": "shell",
       "command": "python -m flask run --app server.app --host 0.0.0.0 --port 5100",
       "isBackground": true,
-      "group": "build",
+      "group": { "kind": "build", "isDefault": true },
       "problemMatcher": []
     },
     {
@@ -14,7 +20,7 @@
       "type": "shell",
       "command": "WORKSHOP_INTENTIONAL_BUG=1 python -m flask run --app server.app --host 0.0.0.0 --port 5100",
       "isBackground": true,
-      "group": "build",
+      "group": { "kind": "build", "isDefault": false },
       "problemMatcher": []
     },
     {
@@ -22,14 +28,14 @@
       "type": "shell",
       "command": "cd client && npm run dev",
       "isBackground": true,
-      "group": "build",
+      "group": { "kind": "build", "isDefault": false },
       "problemMatcher": []
     },
     {
       "label": "Run Tests",
       "type": "shell",
       "command": "pytest server/test_app.py -q",
-      "group": "test",
+      "group": { "kind": "test", "isDefault": true },
       "problemMatcher": []
     }
   ]
