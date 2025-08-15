@@ -32,6 +32,13 @@
       "command": "cd client && npm run dev",
       "isBackground": true,
       "group": { "kind": "build", "isDefault": false },
+      "problemMatcher": [],
+      "postTask": "open-frontend-url"
+    },
+    {
+      "label": "open-frontend-url",
+      "type": "shell",
+      "command": "open http://localhost:4321",
       "problemMatcher": []
     },
     {

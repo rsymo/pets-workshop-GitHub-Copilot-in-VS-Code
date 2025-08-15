@@ -1,0 +1,26 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5100
+ * Running on http://192.168.1.124:5100
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [15/Aug/2025 19:15:48] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:15:48] "GET /api/breeds HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:15:48] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:15:49] "GET /api/breeds HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:15:49] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:15:49] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:16:50] "GET /api/breeds HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:16:50] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:16:50] "GET /api/dogs HTTP/1.1" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5100 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [15/Aug/2025 19:18:51] "GET /api/breeds HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:18:51] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:18:51] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:18:51] "GET /api/breeds HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:18:51] "GET /api/dogs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Aug/2025 19:18:51] "GET /api/dogs HTTP/1.1" 200 -

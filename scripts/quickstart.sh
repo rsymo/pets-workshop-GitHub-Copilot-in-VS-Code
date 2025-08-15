@@ -21,4 +21,8 @@ cd ..
 # Start frontend
 cd client
 npm install
-npm run dev
+npm run dev &
+FRONTEND_PID=$!
+sleep 3
+open http://localhost:4321
+wait $FRONTEND_PID
