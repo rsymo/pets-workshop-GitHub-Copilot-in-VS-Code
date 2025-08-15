@@ -2,3 +2,7 @@ Usage: python -m flask run [OPTIONS]
 Try 'python -m flask run --help' for help.
 
 Error: No such option: --app
+Usage: python -m flask run [OPTIONS]
+Try 'python -m flask run --help' for help.
+
+Error: No such option: --app

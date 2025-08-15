@@ -10,10 +10,13 @@ source venv/bin/activate
 # Install backend dependencies
 pip install -r server/requirements.txt
 
+
 # Start backend (in background)
-nohup python3 -m flask run --app server.app --host 0.0.0.0 --port 5100 &
+cd server
+nohup flask --app app run --host 0.0.0.0 --port 5100 &
 BACKEND_PID=$!
 echo "Backend started with PID $BACKEND_PID on port 5100"
+cd ..
 
 # Start frontend
 cd client
